@@ -22,14 +22,14 @@ def check_age_identifier
 
   # Determines the valid age identifiers for each month
   if [1, 2].include?(current_month)
-    valid_mar_aug_age_id = current_year - 1
-    valid_sep_feb_age_id = current_year + 49
+    mar_aug_valid_age_id = current_year - 1
+    sep_feb_valid_age_id = current_year + 49
   elsif [3, 4, 5, 6, 7, 8].include?(current_month)
-    valid_mar_aug_age_id = current_year
-    valid_sep_feb_age_id = current_year + 49
+    mar_aug_valid_age_id = current_year
+    sep_feb_valid_age_id = current_year + 49
   else
-    valid_mar_aug_age_id = current_year
-    valid_sep_feb_age_id = current_year + 50
+    mar_aug_valid_age_id = current_year
+    sep_feb_valid_age_id = current_year + 50
   end
 
   # Returns a message when the reg mark has a valid age identifier or
@@ -38,9 +38,9 @@ def check_age_identifier
 
   when 0
     raise StandardError, "Invalid age identifier 00 for #{@reg_mark}"
-  when 1..valid_mar_aug_age_id
+  when 1..mar_aug_valid_age_id
     p "#{@reg_mark} registered between March 20#{format_year(age_identifier)} and August 20#{format_year(age_identifier)}"
-  when 51..valid_sep_feb_age_id
+  when 51..sep_feb_valid_age_id
     p "#{@reg_mark} registered between September 20#{format_year(age_identifier - 50)} and February 20#{format_year(age_identifier - 49)}"
   else
     raise StandardError, "Invalid age identifier #{age_identifier} not yet issued for #{@reg_mark}"
