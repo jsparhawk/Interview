@@ -16,15 +16,15 @@ def check_area_code
 end
 
 def check_age_identifier
-  age_identifier = @reg_mark[2,2].to_i
+  age_identifier = @reg_mark[2, 2].to_i
   current_year = Date.today.strftime('%y').to_i
   current_month = Date.today.strftime('%m').to_i
 
   # Determines the valid age identifiers for each month
-  if [1,2].include?(current_month)
+  if [1, 2].include?(current_month)
     valid_mar_aug_age_id = current_year - 1
     valid_sep_feb_age_id = current_year + 49
-  elsif [3,4,5,6,7,8].include?(current_month)
+  elsif [3, 4, 5, 6, 7, 8].include?(current_month)
     valid_mar_aug_age_id = current_year
     valid_sep_feb_age_id = current_year + 49
   else
@@ -48,5 +48,5 @@ def check_age_identifier
 end
 
 def format_year(year)
-  "%02d" % year
+  format('%02d', year)
 end

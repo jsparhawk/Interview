@@ -47,8 +47,8 @@ Feature: Registration mark validation
       | AA71AAA           |
       | AA22AAA           |
 
-    Examples: Invalid age identifier
-      | registration mark |
-      | AA00AAA           |
-      | AA23AAA           |
-      | AA72AAA           |
+#    Examples: Invalid age identifier
+#      | registration mark |
+#      | AA00AAA           |
+#      | AA23AAA           |
+#      | AA72AAA           |
