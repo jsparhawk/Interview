@@ -15,4 +15,3 @@ end
 When(/^the year of registration is valid$/) do
   check_age_identifier
 end
-

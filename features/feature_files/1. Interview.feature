@@ -52,3 +52,6 @@ Feature: Registration mark validation
       | AA00AAA           |
       | AA23AAA           |
       | AA72AAA           |
+
+
+

@@ -1,0 +1,16 @@
+---
+inherit_gem:
+  dvla-lint: ".rubocop.yml"
+
+AllCops:
+  SuggestExtensions: false
+  NewCops: disable
+
+
+Metrics/BlockLength:
+  Exclude:
+    - "features/step_definitions/compound_steps.rb"
+    - "features/factories/invalid_data.rb"
+    - "features/step_definitions/general_scenario_steps.rb"
+    - "features/factories/vehicle.rb"
+    - "features/step_definitions/duplicate_v5.rb"
