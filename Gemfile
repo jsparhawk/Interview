@@ -9,3 +9,7 @@ gem 'cucumber'
 gem 'rake', '~> 12.3', require: false
 gem 'rspec'
 gem 'rspec-expectations'
+gem 'nokogiri'
+gem 'selenium-webdriver'
+gem 'capybara'
+gem 'webdrivers'
