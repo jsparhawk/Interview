@@ -1,6 +1,6 @@
 Given(/^I visit google using simple capybara$/) do
   set_up_capybara_driver
-  visit 'https://www.gov.uk/'
+  visit 'https://www.google.co.uk/'
   sleep 5
 end
 
@@ -17,7 +17,7 @@ end
 
 Given(/^I visit google using remote selenium$/) do
   set_up_capybara_remote_driver
-  visit 'https://www.gov.uk/'
+  visit 'https://www.google.co.uk/'
   sleep 50
 end
 
