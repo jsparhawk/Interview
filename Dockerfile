@@ -6,6 +6,8 @@ RUN apk add curl wget bash
 RUN apk add --update ruby-dev build-base
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
+
+# Copy the intervie directory in the the container Interview directory
 WORKDIR Interview
 COPY . /Interview
 RUN ls
