@@ -18,7 +18,7 @@ end
 Given(/^I visit google using remote selenium$/) do
   set_up_capybara_remote_driver
   visit 'https://www.gov.uk/'
-  sleep 5
+  sleep 50
 end
 
 def set_up_capybara_remote_driver
