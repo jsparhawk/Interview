@@ -53,6 +53,7 @@ Given(/^I visit google using selenium$/) do
 end
 
 def set_up_selenium_driver
+  p Selenium::WebDriver.logger.level = :info
   # Selenium communicates with the chrome web browser
   Selenium::WebDriver.for :chrome
 end
@@ -96,7 +97,8 @@ Given(/^I visit google using capybara and pass options to the browser$/) do
 end
 
 def set_up_capybara_driver_with_options
-  # Capybara registers a driver to se
+  # Capybara registers a selenium driver
+  # Selenium communicates with the chrome browser
   Capybara.register_driver :john do |app|
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument '--start-fullscreen'
@@ -106,4 +108,16 @@ def set_up_capybara_driver_with_options
     Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: [options])
   end
   Capybara.default_driver = :john
+end
+
+Given(/^I visit google and see logging info$/) do
+  driver = set_up_selenium_driver_with_logging
+  driver.navigate.to 'https://www.gov.uk/'
+  sleep 5
+end
+
+def set_up_selenium_driver_with_logging
+  # Output Selenium logging :info :debug etc
+  Selenium::WebDriver.logger.level = :debug
+  Selenium::WebDriver.for :chrome
 end

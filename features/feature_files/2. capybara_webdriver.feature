@@ -1,4 +1,4 @@
-Feature: Capybara drivers
+Feature: Capybara/Selenium drivers
 
   Scenario: I visit google using capybara selenium default driver
     Given I visit google using capybara selenium default driver
@@ -20,3 +20,6 @@ Feature: Capybara drivers
 
   Scenario: I visit google using capybara and pass options to the browser
     Given I visit google using capybara and pass options to the browser
+
+  Scenario: I visit google and see logging info
+    Given I visit google and see logging info
