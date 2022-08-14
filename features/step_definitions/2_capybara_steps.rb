@@ -13,20 +13,18 @@ def set_up_capybara_selenium_default_driver
   Capybara.default_driver = :selenium
 end
 
-Given(/^I visit google using simple capybara$/) do
-  set_up_capybara_driver
+Given(/^I visit google registering a selenium driver to capybara$/) do
+  register_a_selenium_driver_to_capybara
   visit 'https://www.gov.uk/'
   sleep 5
 end
 
-def set_up_capybara_driver
-  # Set up our own capybara driver named :john which creates a new
-  # instance of capybara selenium driver for chrome
+def register_a_selenium_driver_to_capybara
+  # Register a selenium driver to capybara
   Capybara.register_driver :john do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome)
   end
   Capybara.default_driver = :john
-  Capybara.use_default_driver
 end
 
 Given(/^I visit google using remote selenium$/) do
@@ -43,7 +41,6 @@ def set_up_capybara_remote_driver
     Capybara::Selenium::Driver.new(app, browser: :chrome, url: 'http://localhost:4444')
   end
   Capybara.default_driver = :remote_john
-  Capybara.use_default_driver
 end
 
 Given(/^I visit google using selenium$/) do
@@ -53,7 +50,6 @@ Given(/^I visit google using selenium$/) do
 end
 
 def set_up_selenium_driver
-  p Selenium::WebDriver.logger.level = :info
   # Selenium communicates with the chrome web browser
   Selenium::WebDriver.for :chrome
 end
@@ -98,7 +94,7 @@ end
 
 def set_up_capybara_driver_with_options
   # Capybara registers a selenium driver
-  # Selenium communicates with the chrome browser
+  # Selenium communicates with the chrome browser passing the options to chrome
   Capybara.register_driver :john do |app|
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument '--start-fullscreen'

@@ -3,8 +3,8 @@ Feature: Capybara/Selenium drivers
   Scenario: I visit google using capybara selenium default driver
     Given I visit google using capybara selenium default driver
 
-  Scenario: I visit google using simple capybara
-    Given I visit google using simple capybara
+  Scenario: I visit google registering a selenium driver to capybara
+    Given I visit google registering a selenium driver to capybara
 
   Scenario: I visit google using remote selenium
     Given I visit google using remote selenium
